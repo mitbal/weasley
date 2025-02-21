@@ -6,5 +6,6 @@ if [ "$COMPONENT" = "server" ]; then
 
 # Start Prefect worker if COMPONENT is "worker"
 elif [ "$COMPONENT" = "worker" ]; then
-    prefect worker start -p "default-agent-pool"
+    prefect config set PREFECT_API_URL='http://weasley-production.up.railway.app/api'
+    prefect worker start -p 'default'
 fi
