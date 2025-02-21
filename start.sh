@@ -6,6 +6,7 @@ if [ "$COMPONENT" = "server" ]; then
 
 # Start Prefect worker if COMPONENT is "worker"
 elif [ "$COMPONENT" = "worker" ]; then
-    prefect config set PREFECT_API_URL='http://weasley-production.up.railway.app/api'
+    prefect config set PREFECT_API_URL='https://weasley-production.up.railway.app/api'
+    prefect work-pool create 'default' --type process
     prefect worker start -p 'default'
 fi
