@@ -2,7 +2,8 @@
 
 # Start Prefect server if COMPONENT is "server"
 if [ "$COMPONENT" = "server" ]; then
-    prefect server start --host 0.0.0.0 --port $PORT
+    prefect config set PREFECT_API_URL='https://weasley-production.up.railway.app/api'
+    prefect server start --port $PORT
 
 # Start Prefect worker if COMPONENT is "worker"
 elif [ "$COMPONENT" = "worker" ]; then
