@@ -1,4 +1,6 @@
 redis==5.2.1
+lesley==0.2.1
+altair==5.4.1
 numpy==1.26.4
 pandas==2.2.2
 scipy==1.14.0
