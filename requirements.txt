@@ -8,3 +8,4 @@ pillow==10.4.0
 prefect==3.4.13
 asyncpg==0.29.0
 supabase==2.13.0
+streamlit_echarts5==1.0.0
