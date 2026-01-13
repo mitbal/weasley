@@ -25,7 +25,15 @@ restart_worker() {
 # Your existing logic for server
 if [ "$COMPONENT" = "server" ]; then
     prefect config set PREFECT_API_URL='https://weasley-production.up.railway.app/api'
-    prefect server start --port $PORT --host 0.0.0.0
+    
+    # Launch with Gunicorn to manage memory
+    exec gunicorn "prefect.server.api.server:create_app()" \
+        --workers 2 \
+        --worker-class uvicorn.workers.UvicornWorker \
+        --bind 0.0.0.0:$PORT \
+        --max-requests 1000 \
+        --max-requests-jitter 100
+        
 elif [ "$COMPONENT" = "worker" ]; then
     restart_worker
 fi

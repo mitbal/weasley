@@ -7,5 +7,7 @@ scipy==1.14.0
 pillow==10.4.0
 prefect==3.4.13
 asyncpg==0.29.0
+uvicorn==0.34.0
 supabase==2.13.0
+gunicorn==23.0.0
 streamlit_echarts5==1.0.0
