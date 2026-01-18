@@ -28,7 +28,7 @@ if [ "$COMPONENT" = "server" ]; then
     
     # Launch with Gunicorn to manage memory
     exec gunicorn "prefect.server.api.server:create_app()" \
-        --workers 2 \
+        --workers 1 \
         --worker-class uvicorn.workers.UvicornWorker \
         --bind 0.0.0.0:$PORT \
         --max-requests 1000 \
