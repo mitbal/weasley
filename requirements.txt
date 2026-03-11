@@ -10,4 +10,5 @@ asyncpg==0.29.0
 uvicorn==0.34.0
 supabase==2.13.0
 gunicorn==23.0.0
+psycopg2-binary==2.9.11
 streamlit_echarts5==1.0.0
