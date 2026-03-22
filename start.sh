@@ -2,7 +2,7 @@
 
 set -e
 
-prefect config set PREFECT_API_URL="${PREFECT_API_URL:-https://weasley-production.up.railway.app/api}"
+prefect config set PREFECT_API_URL="${PREFECT_API_URL}"
 
 if [ "$COMPONENT" = "server" ]; then
     echo "Starting Prefect Server..."
@@ -16,7 +16,7 @@ if [ "$COMPONENT" = "server" ]; then
 elif [ "$COMPONENT" = "worker" ]; then
     echo "Starting Prefect Worker..."
 
-    until curl -sf "${PREFECT_API_URL:-https://weasley-production.up.railway.app/api}/health" > /dev/null; do
+    until curl -sf "${PREFECT_API_URL}/health" > /dev/null; do
         echo "Server not ready yet, retrying in 5s..."
         sleep 5
     done
