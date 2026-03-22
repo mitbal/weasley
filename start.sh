@@ -22,6 +22,8 @@ elif [ "$COMPONENT" = "worker" ]; then
     done
     echo "Server is ready."
 
+    prefect config set api.auth_string="${PREFECT_SERVER_API_AUTH_STRING}"
+
     prefect work-pool create 'default' --type process 2>/dev/null || true
 
     while true; do
